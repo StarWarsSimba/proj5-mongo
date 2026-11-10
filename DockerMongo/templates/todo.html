@@ -1,10 +1,10 @@
 <form action="/new" method="POST">
-  <input type="text" name="name"></input>
-  <input type="text" name="description"></input>
+  <input type="text" name="name" placeholder="enter name here"></input>
+  <input type="text" name="description" placeholder="enter description here"></input>
   <input type="submit"></input>
 </form>
-
+<h1>Saved items</h1>
 {% for item in items %}
-  <h1> {{ item.name }} </h1>
+  <h2> {{ item.name }} </h2>
   <p> {{ item.description }} <p>
 {% endfor %}

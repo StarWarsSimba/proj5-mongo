@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:3.11-slim
 ADD . /todo
 WORKDIR /todo
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
