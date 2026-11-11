@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saved Control Times</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Saved Control Times</h1>
+  <a href="{{ url_for('index') }}" class="btn btn-default">Back to calculator</a>
+
+  {% if error %}
+    <p class="alert alert-danger" role="alert">{{ error }}</p>
+  {% elif controls %}
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Brevet distance (km)</th>
+            <th>Start</th>
+            <th>Miles</th>
+            <th>km</th>
+            <th>Location</th>
+            <th>Open</th>
+            <th>Close</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for control in controls %}
+          <tr>
+            <td>{{ control.brevet_distance }}</td>
+            <td>{{ control.begin_date }} {{ control.begin_time }}</td>
+            <td>{{ control.get('miles', '') }}</td>
+            <td>{{ control.km }}</td>
+            <td>{{ control.location }}</td>
+            <td>{{ control.open }}</td>
+            <td>{{ control.close }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>No saved control times.</p>
+  {% endif %}
+</div>
+</body>
+</html>

@@ -52,7 +52,7 @@
 {% endwith %}
 
 <!-- Design on bootstrap grid -->
-<form role="form">
+<form role="form" action="{{ url_for('submit_controls') }}" method="post">
 <div class="row">
   <div class="col-md-4">
     <label>Distance</label>
@@ -90,7 +90,7 @@
    {% for row in range(20) %}
     <tr class="control">
       <!-- Dist (mi) -->
-      <td><input name="miles" type="number" 
+      <td><input name="miles" type="text" 
            min="0" max="900" size="5" /></td>
       <!-- Dist (km) -->
       <td><input name="km" type="text"
@@ -110,7 +110,9 @@
   </table>
   </div> <!-- col -->
   </div> <!-- row -->
+  <button type="submit" class="btn btn-primary">Submit control times</button>
 </form>
+<a href="{{ url_for('display_controls') }}" class="btn btn-default">Display saved control times</a>
 
 <script type="text/javascript">
 
